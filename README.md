@@ -122,3 +122,21 @@ docker run -p 3000:3000 kubechaos:v1
 Visit: **[http://localhost:3000](http://localhost:3000)**
 
 > **Podman users:** Replace `docker` with `podman` in the above commands.
+
+## 💡 Optional - Enable pod destruction!
+
+You can change the ENABLE_POD_DESTROY environment variable to "true" to enable the pod destruction surprise!
+
+```bash
+kubectl patch deployment kubechaos -p '{"spec":{"template":{"spec":{"containers":[{"name":"app","env":[{"name":"ENABLE_POD_DESTROY","value":"true"}]}]}}}}'
+```
+
+The pods should restart automatically.
+
+```bash
+# Tip: you can watch the pods get replaced in real-time
+kubectl get pods -w
+```
+
+Refresh the page until you see a red button with "DESTROY POD NOW". The pod is killed (which you will be
+able to see with the above command) and replaced automatically.
