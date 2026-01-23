@@ -670,7 +670,8 @@ Enable the pod destruction surprise by setting the
 ```
 **Tip:** Watch the pods with `kubectl get pods -w`
 
-**Optional:** Can you set this via the ConfigMap?
+*Exercise:* Can you set this via the ConfigMap? What about changing the
+border style through `BORDER_STYLE`?
 
 ---
 # Lesson 3: Updating Config Maps
