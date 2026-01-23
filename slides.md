@@ -23,11 +23,11 @@ h1 {color: teal}
 
 # Deploying a Web Application with Kubernetes
 ## A Cloud Native SIG Workshop
-### RSECon25 Thursday 11th September
-Authors: Laura Shemilt <sup>1</sup> , Lewis Sampson <sup>2</sup> , Piper Fowler-Wright<sup>1</sup> and Alex Lubbock<sup>1</sup>
+### February 18<sup>th</sup> 2026 
+Lewis Sampson <sup>1</sup> & Piper Fowler-Wright<sup>2</sup>
 
-<sup>1</sup> *The Rosalind Franklin Institute*
-<sup>2</sup> *Science and Techonology Facilities Council, Scientific Computing Division - DAFNI*
+<sup>1</sup> *Data & Analytics For National Infrastructure*
+<sup>2</sup> *The Rosalind Franklin Institute*
 
 
 ---
@@ -664,6 +664,21 @@ data:
            }
 
 ```
+
+---
+# Lesson 3: Pod destruction surprise
+
+Enable the pod destruction surprise by setting the
+`ENABLE_POD_DESTROY` variable in `manifests.yaml`:
+```
+        env:
+        - name: ENABLE_POD_DESTROY
+          value: "true"
+```
+**Tip:** Watch the pods with `kubectl get pods -w`
+
+**Optional:** Can you set this via the ConfigMap?
+
 ---
 # Lesson 3: Updating Config Maps
 ### Summary:
