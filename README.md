@@ -1,6 +1,6 @@
 # 📖 README — KubeChaos @ RSECon25
 
-GitHub Pages - https://rosalindfranklininstitute.github.io/rsecon25-intro-to-kubernetes/
+GitHub Pages - https://cloud-native-sig.github.io/stfcfeb26-intro-to-kubernetes/
 
 ## 🎯 About
 
