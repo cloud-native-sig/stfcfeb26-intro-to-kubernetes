@@ -205,8 +205,8 @@ namespaces to divide resources (e.g.,`dev`, `prod`)
 In this lesson we are going to launch our first application on Kubernetes!
 Make a local clone of Kubechaos repository:
 ```
-git clone https://github.com/rosalindfranklininstitute/rsecon25-intro-to-kubernetes.git
-cd rsecon25-intro-to-kubernetes
+git clone https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes.git
+cd stfcfeb26-intro-to-kubernetes
 ```
 Check your cluster from the previous lesson is still running(`minikube start` if it is not):
 ```
@@ -398,7 +398,7 @@ Your tasks:
 
 1. Add 2-3 of you own surprises with jokes or other HTML content
 2. Remove the original surprise elements
-3. Finally, locate the "KubeChaos @ RSECon25!" title and replace it with "<your-name\> @ RSECon25!"
+3. Finally, locate the "KubeChaos @ STFCFeb26!" title and replace it with "<your-name\> @ STFCFeb26!"
 
 
 > ⚠️ JavaScript Array Syntax:
@@ -699,7 +699,7 @@ In this lesson, we'll deploy a community application available as a Helm chart t
 > Like all code on the internet, Helm charts can contain malicious content.
 > Only install Helm charts from trusted sources. Vetting charts using Helm's
 > `template` and `verify` commands and other best practices
-> are discussed in the `sysdig` article in Further Reading in the documentation at: https://rosalindfranklininstitute.github.io/rsecon25-intro-to-kubernetes/
+> are discussed in the `sysdig` article in Further Reading in the documentation at: https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes
 
 ---
 # Lesson 4: Helm
@@ -861,7 +861,7 @@ helm list -n my-mocktail
 Everything you have learned today can be used in your own work. For further reading on the requirements to scale to production please see:
 
 <img src='slide-assets/qr.png' width=200px class=centered-image></img>
-*https://rosalindfranklininstitute.github.io/rsecon25-intro-to-kubernetes/*
+*https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes/*
 
 
 ---
