@@ -21,7 +21,7 @@ theme:
   features: 
     - instant
   
-repo_url: https://github.com/rosalindfranklininstitute/rsecon25-intro-to-kubernetes
+repo_url: https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes
 edit_uri: tree/main/tutorial
 
 
