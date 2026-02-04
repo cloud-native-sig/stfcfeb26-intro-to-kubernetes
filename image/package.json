@@ -1,7 +1,7 @@
 {
   "name": "kubechaos",
   "version": "1.0.0",
-  "description": "A simple hello world app for RSECon",
+  "description": "A simple hello world app for attendees",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

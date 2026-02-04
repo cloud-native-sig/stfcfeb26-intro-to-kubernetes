@@ -51,7 +51,7 @@ function renderPage(surpriseContent) {
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>KubeChaos @ RSECon25</title>
+  <title>KubeChaos @ STFCFeb26</title>
   <style>
     body { font-family: 'sans-serif'; text-align: center; margin-top: 5rem; background-color: ${backgroundColor};
     color: ${fontColor};}
@@ -61,7 +61,7 @@ function renderPage(surpriseContent) {
   <link rel="stylesheet" href="/style.css" >
 </head>
 <body>
-  <h1>KubeChaos @ RSECon25!</h1>
+  <h1>KubeChaos @ STFCFeb26!</h1>
   <p>Served by pod: <strong>${os.hostname()}</strong></p>
   <p>Every refresh brings a new surprise 🎲</p>
   <div id="playground">
@@ -77,7 +77,7 @@ server.use(express.static('public'));
 
 if (process.env.ENABLE_POD_DESTROY === "true") {
   // Array of HTML fragments (no DOM manipulation needed)
- surprises.push(
+  surprises.push(
     `<h2>💣 Click to destroy!</h2>
   <button onclick="destroyPod()" style="font-size:20px;padding:10px;background:red;color:white;border:none;cursor:pointer;">💀 DESTROY POD NOW 💀</button>
   <script>
@@ -104,20 +104,20 @@ if (process.env.ENABLE_POD_DESTROY === "true") {
 
     // Multiple ways to ensure the process dies
     setTimeout(() => {
-        console.log("💥 PROCESS.EXIT(1)");
-        process.exit(1);
+      console.log("💥 PROCESS.EXIT(1)");
+      process.exit(1);
     }, 100);
 
     setTimeout(() => {
-        console.log("💥 PROCESS.EXIT(143) - SIGTERM");
-        process.exit(143);
+      console.log("💥 PROCESS.EXIT(143) - SIGTERM");
+      process.exit(143);
     }, 200);
 
     setTimeout(() => {
-        console.log("💥 THROWING UNCAUGHT EXCEPTION");
-        throw new Error("INTENTIONAL CRASH FOR KUBERNETES EXPERIMENT");
+      console.log("💥 THROWING UNCAUGHT EXCEPTION");
+      throw new Error("INTENTIONAL CRASH FOR KUBERNETES EXPERIMENT");
     }, 300);
-});
+  });
 }
 
 server.get('/', (req, res) => {

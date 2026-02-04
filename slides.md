@@ -9,7 +9,8 @@ header:
 
 section {
   background: white;
-  color: black
+  color: black;
+  padding-top: 110px;
 }
 h1 {color: teal}
 
@@ -23,12 +24,9 @@ h1 {color: teal}
 
 # Deploying a Web Application with Kubernetes
 ## A Cloud Native SIG Workshop
-### RSECon25 Thursday 11th September
-Authors: Laura Shemilt <sup>1</sup> , Lewis Sampson <sup>2</sup> , Piper Fowler-Wright<sup>1</sup> and Alex Lubbock<sup>1</sup>
-
-<sup>1</sup> *The Rosalind Franklin Institute*
-<sup>2</sup> *Science and Techonology Facilities Council, Scientific Computing Division - DAFNI*
-
+*18 Feb 2026, CR16-R80*
+<br>
+Lewis Sampson (DAFNI) and Piper Fowler-Wright (RFI)
 
 ---
 # Why Kubernetes?
@@ -51,18 +49,20 @@ Kubernetes is a powerful container orchestration platform that automates deploym
 ---
 
 # Kubernetes Architecture
-The **Control Plane** is the brain of the Kubernetes cluster. It manages the cluster's state and makes decisions about scheduling, scaling, and responding to events. The Control Plane has individual components running as pods on the node.
+
+The **Control Plane** is the brain of the cluster, managing its state and deciding scheduling, scaling, and event response. It has components running as pods.
 
 #### Control Node Key Components:
 - API Server - The front-end for the Kubernetes control plane.
 
-- Controller Manager - Runs controllers that handle routine tasks like node health checks, and endpoint management.
+- Controller Manager - Controllers to handle routine tasks like node health checks & endpoint management.
 
 - Scheduler - Assigns newly created pods to nodes based on resource availability and constraints.
 
 - etcd - A distributed key-value store that holds all cluster data.
 
 ---
+
 # Kubernetes Architecture
 
 **Worker nodes** are where your application containers actually run.
@@ -75,6 +75,7 @@ The **Control Plane** is the brain of the Kubernetes cluster. It manages the clu
 - Kube-proxy - Handles network routing and load balancing for services within the cluster.
 
 ---
+
 # Kubernetes Architecture
 <img src='mkdocs/docs/images/kubernetes-overview.svg' width=1000px></img>
 <span style='font-size:18'>https://kubernetes.io/docs/concepts/overview/components/</span>
@@ -204,8 +205,8 @@ namespaces to divide resources (e.g.,`dev`, `prod`)
 In this lesson we are going to launch our first application on Kubernetes!
 Make a local clone of Kubechaos repository:
 ```
-git clone https://github.com/rosalindfranklininstitute/rsecon25-intro-to-kubernetes.git
-cd rsecon25-intro-to-kubernetes
+git clone https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes.git
+cd stfcfeb26-intro-to-kubernetes
 ```
 Check your cluster from the previous lesson is still running(`minikube start` if it is not):
 ```
@@ -397,7 +398,7 @@ Your tasks:
 
 1. Add 2-3 of you own surprises with jokes or other HTML content
 2. Remove the original surprise elements
-3. Finally, locate the "KubeChaos @ RSECon25!" title and replace it with "<your-name\> @ RSECon25!"
+3. Finally, locate the "KubeChaos @ STFCFeb26!" title and replace it with "<your-name\> @ STFCFeb26!"
 
 
 > ⚠️ JavaScript Array Syntax:
@@ -508,13 +509,7 @@ body { font-family: 'garamond';
        margin-top: 10rem;}
 
 bg_color:
-----
-teal
-
-BinaryData
-====
-
-Events:  <none>
+...
 ```
 ---
 # Lesson 3: Updating with ConfigMaps
@@ -561,7 +556,7 @@ The variables that you edited in the ConfigMap are applied as **environmental va
 
  ---
  # Lesson 3: Updating with ConfigMaps
-We will now look at `manifest.yml`. Please open up this file and scroll to the block at line 22, to line 44. In this part of the deployment we set the `env` section of the container with values from the ConfigMap.
+We will now look at `manifest.yml`, lines 22-44. Here we can set the `env` section of the container with values from the ConfigMap:
 
 ```
     spec:
@@ -627,8 +622,7 @@ Here we are mounting a file as a volume into the pod. The file is being written 
 
 Open the `manifest.yml` and scroll to line 44 to 54:
 
-```   container:
-            ...
+```
         volumeMounts:
         - name: style-env
           mountPath: "/src/public/"
@@ -646,7 +640,7 @@ This creates a volume called `style-env` and mounts it as a volume. This volume 
 
 ---
 # Lesson 3: Updating with ConfigMaps
-To see the manifest of the original ConfigMap (before our edits) you can scroll down to line 73 in `manifests.yml`:
+To see the manifest of the original ConfigMap (before our edits), see `manifests.yml` line 73:
 
 ```
 apiVersion: v1
@@ -662,8 +656,23 @@ data:
     body { font-family: 'sans-serif';
    ...
            }
-
 ```
+
+---
+# Lesson 3: Pod destruction surprise
+
+Enable the pod destruction surprise by setting the
+`ENABLE_POD_DESTROY` variable in `manifests.yaml`:
+```
+        env:
+        - name: ENABLE_POD_DESTROY
+          value: "true"
+```
+**Tip:** Watch the pods with `kubectl get pods -w`
+
+*Exercise:* Can you set this via the ConfigMap? What about changing the
+border style through `BORDER_STYLE`?
+
 ---
 # Lesson 3: Updating Config Maps
 ### Summary:
@@ -690,11 +699,11 @@ In this lesson, we'll deploy a community application available as a Helm chart t
 > Like all code on the internet, Helm charts can contain malicious content.
 > Only install Helm charts from trusted sources. Vetting charts using Helm's
 > `template` and `verify` commands and other best practices
-> are discussed in the `sysdig` article in Further Reading in the documentation at: https://rosalindfranklininstitute.github.io/rsecon25-intro-to-kubernetes/
+> are discussed in the `sysdig` article in Further Reading in the documentation at: https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes
 
 ---
 # Lesson 4: Helm
-## Prerequisites
+**Prerequisites**
 On Linux/WSL, Helm can be installed as a snap package
 ```
 sudo snap install helm --classic
@@ -852,7 +861,7 @@ helm list -n my-mocktail
 Everything you have learned today can be used in your own work. For further reading on the requirements to scale to production please see:
 
 <img src='slide-assets/qr.png' width=200px class=centered-image></img>
-*https://rosalindfranklininstitute.github.io/rsecon25-intro-to-kubernetes/*
+*https://github.com/cloud-native-sig/stfcfeb26-intro-to-kubernetes/*
 
 
 ---
