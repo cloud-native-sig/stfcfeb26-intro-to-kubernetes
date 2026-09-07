@@ -94,14 +94,15 @@ the container:
 
 Server running at http://localhost:3000
 ```
-Note that the URL here refers to an internal port of the container, which
-is different from the port the minikube proxy exposed on 
-your localhost for accessing the service from outside the cluster.
-In general
-Kubernetes keeps the internal container network separate from
-external access, and you need to explicitly configure how services can be
-reached from outside the cluster (see [Services: Network Access](#services-network-access)
-below).
+!!! note
+    The `localhost:3000` URL refers to an internal port of the container, which
+    is different from the port the minikube proxy exposed on 
+    your localhost for accessing the service from outside the cluster.
+    In general
+    Kubernetes keeps the internal container network separate from
+    external access, and you need to explicitly configure how services can be
+    reached from outside the cluster (see [Services: Network Access](#services-network-access)
+    below).
 
 ## Deletion Experiment
 Let's see what happens if we delete the pod from the cluster:
@@ -171,11 +172,12 @@ Pod template and assigned to every Pod created for this Deployment.
 (In practice, the Deployment delegates this to an intermediate ReplicaSet,
 which it creates and manages Pods using the same selector.)
 
-Note that both the *key* and the *value* of the label are variables&mdash;`app`
-carries no special meaning to Kubernetes. We could equally use
-`myapp: kubechaos`, and multiple labels can be specified where useful. The
-`app` convention is widely followed because many tools expect it, following
-Kubernetes' own [recommended labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/).
+!!! Note
+    Both the *key* and *value* of a label are variables&mdash;`app`
+    carries no special meaning to Kubernetes. We could equally use
+    `myapp: kubechaos`, and multiple labels can be specified where useful. The
+    `app` convention is widely followed because many tools expect it, following
+    Kubernetes' own [recommended labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/).
 
 ## Services: Network Access
 
