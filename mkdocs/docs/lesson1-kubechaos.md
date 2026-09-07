@@ -94,7 +94,7 @@ the container:
 
 Server running at http://localhost:3000
 ```
-!!! note
+!!! tip
     The `localhost:3000` URL refers to an internal port of the container, which
     is different from the port the minikube proxy exposed on 
     your localhost for accessing the service from outside the cluster.
@@ -172,7 +172,7 @@ Pod template and assigned to every Pod created for this Deployment.
 (In practice, the Deployment delegates this to an intermediate ReplicaSet,
 which it creates and manages Pods using the same selector.)
 
-!!! Note
+!!! tip
     Both the *key* and *value* of a label are variables&mdash;`app`
     carries no special meaning to Kubernetes. We could equally use
     `myapp: kubechaos`, and multiple labels can be specified where useful. The
